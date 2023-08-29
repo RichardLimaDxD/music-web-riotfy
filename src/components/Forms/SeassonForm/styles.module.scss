@@ -1,0 +1,195 @@
+@use "../../../scss/abstract/variables" as *;
+
+.container__seassonForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.container__seassonForm > h2 {
+  color: $color-black-title;
+
+  font-size: 1.2rem;
+  font-family: $font-riot;
+  font-weight: 600;
+}
+
+.container__seassonForm > img {
+  color: transparent;
+
+  width: 7rem;
+  height: 2rem;
+
+  margin-top: 2rem;
+}
+
+.container__seassonForm > input {
+  width: 15.5rem;
+  height: 40px;
+
+  border-radius: 4px;
+  border: none;
+
+  background-color: $color-gray;
+  color: $color-black;
+}
+
+.container__seassonForm > input::placeholder {
+  padding: 0 1rem;
+  font-family: $font-text;
+}
+
+.container__seassonDiv {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+.container__seassonDiv > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  width: 4.5rem;
+  height: 1.5rem;
+
+  border-radius: 4px;
+
+  text-align: center;
+
+  cursor: pointer;
+}
+
+.container__seassonDiv > div > img {
+  color: transparent;
+
+  width: 1rem;
+  height: 1rem;
+
+  cursor: pointer;
+}
+
+.container__divFacebook {
+  background-color: $color-blue;
+}
+
+.container__divGoogle {
+  background-color: $color-gray;
+}
+
+.container__divApple {
+  background-color: $color-black;
+}
+
+.container__seassonForm > button {
+  height: 3rem;
+  width: 4rem;
+
+  border-radius: 14px;
+
+  border: none;
+
+  margin-top: 4rem;
+}
+
+.container__seassonForm > button > svg {
+  font-size: 1.3rem;
+  color: $color-dark-gray;
+}
+
+.container__divCheckBox {
+  width: 16rem;
+
+  font-family: $font-riot;
+
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.container__divCheckBox > input {
+  cursor: pointer;
+}
+
+.container__divCheckBox > label {
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+.container__divRegisterAccount {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  color: $color-dark-gray;
+  font-family: $font-riot;
+  font-weight: 600;
+
+  margin-top: 4rem;
+}
+
+.container__divRegisterAccount > a {
+  color: inherit;
+
+  text-decoration: none;
+
+  cursor: pointer;
+}
+
+@media (min-width: 1023px) {
+  .container__seassonForm {
+    gap: 1.5rem;
+    padding: 0 3rem;
+  }
+
+  .container__seassonForm > img {
+    width: 9rem;
+    height: 2.5rem;
+  }
+
+  .container__seassonForm > input {
+    height: 48px;
+  }
+
+  .container__seassonForm > input::placeholder {
+    font-size: 1rem;
+  }
+
+  .container__seassonDiv > div {
+    height: 1.8rem;
+  }
+
+  .container__seassonDiv > div > img {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  .container__divCheckBox > label {
+    font-size: 1rem;
+  }
+
+  .container__seassonForm > button {
+    height: 4rem;
+    width: 5rem;
+    border-radius: 20px;
+    margin-top: 3rem;
+  }
+
+  .container__seassonForm > button > svg {
+    font-size: 1.5rem;
+  }
+
+  .container__divRegisterAccount {
+    gap: 1rem;
+  }
+}
+
+@media (min-width: 1439px) {
+  .container__seassonForm {
+    padding: 0 6rem;
+  }
+}
