@@ -1,0 +1,15 @@
+.container__seassonMain > section > img {
+  display: none;
+}
+
+@media (min-width: 1023px) {
+  .container__seassonMain > section {
+    display: flex;
+  }
+
+  .container__seassonMain > section > img {
+    display: flex;
+    height: 100vh;
+    min-width: 65.6%;
+  }
+}
