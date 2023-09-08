@@ -16,6 +16,7 @@ const UserContext = createContext({} as IpropsUser);
 
 const UserProvider = ({ children }: IpropsDefault) => {
   const [user, setUser] = useState<Iusers | null>(null);
+  const [openNav, setIsOpenNav] = useState<boolean>(false);
   const cookies = parseCookies();
   const router = useRouter();
 
@@ -79,7 +80,16 @@ const UserProvider = ({ children }: IpropsDefault) => {
 
   return (
     <UserContext.Provider
-      value={{ user, setUser, createUser, seasson, retrieveUser, logOut }}
+      value={{
+        user,
+        setUser,
+        createUser,
+        seasson,
+        retrieveUser,
+        logOut,
+        openNav,
+        setIsOpenNav,
+      }}
     >
       <MusicProvider>{children}</MusicProvider>
     </UserContext.Provider>

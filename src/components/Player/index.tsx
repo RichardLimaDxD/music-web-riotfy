@@ -1,3 +1,4 @@
+"use client";
 import { GrFormNext, GrFormPrevious } from "react-icons/gr";
 import { PlayerButton } from "../Buttons/PlayerButton";
 import { useMusics } from "@/hooks/musics.hook";

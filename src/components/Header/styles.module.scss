@@ -1,0 +1,52 @@
+@use "../../scss/abstract/variables" as *;
+
+.container__header {
+  display: flex;
+  justify-content: space-between;
+  height: 45px;
+  padding: 0 1rem;
+  align-items: center;
+
+  h1 {
+    font-size: 0.8rem;
+    font-weight: 600;
+    font-style: $font-title;
+  }
+
+  div > h3 {
+    display: none;
+  }
+
+  div > span {
+    font-style: $font-title;
+    font-size: 1rem;
+  }
+}
+
+.container__menuNavMobile {
+  width: 36px;
+
+  position: relative;
+  top: 56px;
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    background: linear-gradient($color-purple, $color-blue, $color-purple);
+
+    box-shadow: 5px 1px 7px 1px $color-gray-white;
+
+    width: 6rem;
+
+    padding: 1rem;
+
+    border-radius: 7px;
+  }
+
+  li {
+    color: $color-gray-white;
+    font-family: $font-text;
+  }
+}
