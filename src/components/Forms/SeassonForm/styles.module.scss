@@ -124,8 +124,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 1rem;
 
   color: $color-dark-gray;
+
   font-family: $font-riot;
   font-weight: 600;
 
@@ -142,8 +144,9 @@
 
 @media (min-width: 1023px) {
   .container__seassonForm {
+    width: 100vw;
     gap: 1.5rem;
-    padding: 0 3rem;
+    padding: 0 1rem;
   }
 
   .container__seassonForm > img {
@@ -152,7 +155,8 @@
   }
 
   .container__seassonForm > input {
-    height: 48px;
+    height: 43px;
+    width: 18.5rem;
   }
 
   .container__seassonForm > input::placeholder {
@@ -161,11 +165,16 @@
 
   .container__seassonDiv > div {
     height: 1.8rem;
+    width: 5.5rem;
   }
 
   .container__seassonDiv > div > img {
     width: 1.5rem;
     height: 1.5rem;
+  }
+
+  .container__divCheckBox {
+    width: 19rem;
   }
 
   .container__divCheckBox > label {

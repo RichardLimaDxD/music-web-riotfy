@@ -1,5 +1,6 @@
+"use client";
 import { SeassonForm } from "@/components/Forms/SeassonForm";
-import backgroundImg from "../../public/morgana.jpg";
+import backgroundImg from "/public/riven.jpg";
 import Image from "next/image";
 import styles from "./styles.module.scss";
 
