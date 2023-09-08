@@ -13,6 +13,8 @@ interface IpropsUser {
   seasson: (formData: Iseasson) => Promise<void>;
   retrieveUser: () => Promise<void>;
   logOut: () => void;
+  openNav: boolean;
+  setIsOpenNav: Dispatch<SetStateAction<boolean>>;
 }
 
 interface Iusers {

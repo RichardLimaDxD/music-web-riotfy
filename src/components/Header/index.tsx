@@ -1,28 +1,23 @@
-import Link from "next/link";
+"use client";
+import { useUsers } from "@/hooks/users.hook";
+import { NavBarMobile } from "./NavBarMobile";
+import { ShowMenuButton } from "../Buttons/ShowMenuButton";
+import styles from "./styles.module.scss";
 
 const Header = () => {
+  const { openNav, setIsOpenNav } = useUsers();
+
   return (
-    <header>
-      <nav>
-        <ul>
-          <li>
-            <Link href={""}>Início</Link>
-          </li>
+    <header className={styles.container__header}>
+      {openNav ? <NavBarMobile /> : <ShowMenuButton />}
 
-          <li>
-            <Link href={""}>Buscar</Link>
-          </li>
-
-          <li>
-            <Link href={""}>Suas bibliotecas</Link>
-          </li>
-        </ul>
-      </nav>
       <h1>MUSIC LEGENDS</h1>
 
       <div>
-        <p>Richard</p>
-        <div>R</div>
+        <h3>Richard</h3>
+        <div>
+          <span>R</span>
+        </div>
       </div>
     </header>
   );

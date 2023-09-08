@@ -2,9 +2,9 @@
 import { createContext, useEffect, useState } from "react";
 import { ImusicProps, Imusic } from "@/interfaces/musics.interface";
 import { IpropsDefault } from "@/interfaces/users.interface";
-import nookies from "nookies";
 import { Player } from "@/components/Player";
 import { usePlayPauseAudio } from "@/hooks/playPauseAudio";
+import nookies from "nookies";
 
 const MusicContext = createContext<ImusicProps>({} as ImusicProps);
 
@@ -76,7 +76,6 @@ const MusicProvider = ({ children }: IpropsDefault) => {
       }}
     >
       {children}
-      <Player />
     </MusicContext.Provider>
   );
 };
