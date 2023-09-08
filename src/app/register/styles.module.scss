@@ -1,13 +1,13 @@
-.container__seassonMain > section > img {
+.container__registerMain > section > img {
   display: none;
 }
 
 @media (min-width: 1023px) {
-  .container__seassonMain > section {
+  .container__registerMain > section {
     display: flex;
   }
 
-  .container__seassonMain > section > img {
+  .container__registerMain > section > img {
     display: flex;
     height: 100vh;
     min-width: 65%;

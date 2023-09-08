@@ -1,12 +1,15 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { UserProvider } from "@/contexts/user.context";
+import { ToastContainer } from "react-toastify";
 import "@/scss/global.scss";
+import "react-toastify/dist/ReactToastify.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Seasson",
-  description: "Seasson RiotFy",
+  title: "RiotFy",
+  description: "RiotFy",
 };
 
 export default function RootLayout({
@@ -16,7 +19,21 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt-br">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <UserProvider>{children}</UserProvider>
+        <ToastContainer
+          position="top-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="light"
+        />
+      </body>
     </html>
   );
 }

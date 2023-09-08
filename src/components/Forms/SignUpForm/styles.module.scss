@@ -1,0 +1,115 @@
+@use "../../../scss/abstract/variables" as *;
+
+.container__registerForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.container__registerForm > p {
+  color: $color-red;
+  font-size: 0.8rem;
+}
+
+.container__registerForm > h1 {
+  margin-top: 6rem;
+  color: $color-black-title;
+
+  font-size: 1.2rem;
+  font-family: $font-riot;
+  font-weight: 600;
+  text-align: center;
+}
+
+.container__registerForm > input {
+  width: 15.5rem;
+  height: 40px;
+
+  border-radius: 4px;
+  border: none;
+
+  background-color: $color-gray;
+  color: $color-black;
+}
+
+.container__registerForm > input::placeholder {
+  padding: 0 1rem;
+  font-family: $font-text;
+}
+
+.container__registerForm > button {
+  width: 10rem;
+  height: 3rem;
+
+  font-size: 1.2rem;
+  font-weight: 600;
+  font-family: $font-riot;
+
+  align-items: baseline;
+
+  border-radius: 4px;
+  border: none;
+
+  margin-top: 1rem;
+
+  color: $color-gray-white;
+
+  background: linear-gradient($color-blue, $color-purple);
+}
+
+.container__registerForm > a {
+  text-decoration: none;
+
+  cursor: pointer;
+
+  color: $color-dark-gray;
+  font-family: $font-riot;
+  font-weight: 600;
+}
+
+@media (min-width: 1023px) {
+  .container__registerForm {
+    width: 100vw;
+    gap: 1.5rem;
+    padding: 0 1rem;
+  }
+
+  .container__registerForm > h1 {
+    margin-top: 0;
+  }
+
+  .container__registerForm > img {
+    width: 9rem;
+    height: 2.5rem;
+  }
+
+  .container__registerForm > input {
+    height: 43px;
+    width: 18.5rem;
+  }
+
+  .container__registerForm > input::placeholder {
+    font-size: 1rem;
+  }
+
+  .container__registerForm > button {
+    width: 10rem;
+    height: 3rem;
+
+    font-size: 1.2rem;
+    font-weight: 600;
+
+    border-radius: 4px;
+    border: none;
+
+    margin-top: 1rem;
+  }
+}
+
+@media (min-width: 1439px) {
+  .container__seassonForm {
+    padding: 0 6rem;
+  }
+}
