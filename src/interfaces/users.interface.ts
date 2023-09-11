@@ -15,6 +15,8 @@ interface IpropsUser {
   logOut: () => void;
   openNav: boolean;
   setIsOpenNav: Dispatch<SetStateAction<boolean>>;
+  userOptions: boolean;
+  setUserOptions: Dispatch<SetStateAction<boolean>>;
 }
 
 interface Iusers {

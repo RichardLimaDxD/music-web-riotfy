@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import { IprogressProps } from "@/interfaces/musics.interface";
 import { useMusics } from "@/hooks/musics.hook";
+import styles from "./styles.module.scss";
 
 const Progress = ({ musics, children }: IprogressProps) => {
   const progressDivRef = useRef<HTMLDivElement>(null);
@@ -33,7 +34,11 @@ const Progress = ({ musics, children }: IprogressProps) => {
     };
   }, [currentMusic, musics]);
 
-  return <div ref={progressDivRef}>{children}</div>;
+  return (
+    <div className={styles.container__progress} ref={progressDivRef}>
+      {children}
+    </div>
+  );
 };
 
 export { Progress };

@@ -17,6 +17,7 @@ const UserContext = createContext({} as IpropsUser);
 const UserProvider = ({ children }: IpropsDefault) => {
   const [user, setUser] = useState<Iusers | null>(null);
   const [openNav, setIsOpenNav] = useState<boolean>(false);
+  const [userOptions, setUserOptions] = useState<boolean>(false);
   const cookies = parseCookies();
   const router = useRouter();
 
@@ -29,7 +30,7 @@ const UserProvider = ({ children }: IpropsDefault) => {
       Toastfy({ message: "Usuário criado com sucesso!", isSucess: true });
       router.push("/");
     } catch (error) {
-      Toastfy({ message: "Erro ao criar um usuário" });
+      Toastfy({ message: "Usuário já existe!" });
     }
   };
 
@@ -46,7 +47,7 @@ const UserProvider = ({ children }: IpropsDefault) => {
       Toastfy({ message: "Bem vindo(a)!", isSucess: true });
     } catch (error) {
       Toastfy({
-        message: "Verifique suas informações de usuário!.",
+        message: "Verifique suas informações de usuário!",
       });
     }
   };
@@ -67,7 +68,7 @@ const UserProvider = ({ children }: IpropsDefault) => {
 
     setUser(null);
 
-    Toastfy({ message: "Bem vindo(a)!", isSucess: true });
+    Toastfy({ message: "Saindo...", isSucess: true });
 
     router.push("/");
   };
@@ -89,6 +90,8 @@ const UserProvider = ({ children }: IpropsDefault) => {
         logOut,
         openNav,
         setIsOpenNav,
+        userOptions,
+        setUserOptions,
       }}
     >
       <MusicProvider>{children}</MusicProvider>

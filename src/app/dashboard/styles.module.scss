@@ -1,5 +1,12 @@
-.container__dashboardMain {
+.container__dashboardBackground {
   background-image: url("../../assets/wallpaper.svg");
   background-repeat: no-repeat;
+  background-position: center center;
   background-size: cover;
+  height: 100vh;
+}
+
+.container__dashboardMain {
+  margin-top: 1rem;
+  padding: 0 1.5rem;
 }

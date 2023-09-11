@@ -1,0 +1,31 @@
+@use "../../scss/abstract/variables" as *;
+
+.container__footerPlayer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background-color: $color-purple;
+
+  position: fixed;
+  bottom: 0;
+
+  height: 55px;
+  width: 100%;
+
+  div:first-child {
+    display: none;
+  }
+
+  div > p {
+    display: none;
+  }
+
+  div > h2 {
+    display: none;
+  }
+
+  div:last-child {
+    display: none;
+  }
+}

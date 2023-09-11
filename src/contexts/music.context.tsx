@@ -2,14 +2,11 @@
 import { createContext, useEffect, useState } from "react";
 import { ImusicProps, Imusic } from "@/interfaces/musics.interface";
 import { IpropsDefault } from "@/interfaces/users.interface";
-import { Player } from "@/components/Player";
 import { usePlayPauseAudio } from "@/hooks/playPauseAudio";
-import nookies from "nookies";
 
 const MusicContext = createContext<ImusicProps>({} as ImusicProps);
 
 const MusicProvider = ({ children }: IpropsDefault) => {
-  const cookies = nookies.get(null, "riotfy.token");
   const [music, setMusic] = useState<Imusic[]>([]);
   const [currentMusic, setCurrentMusic] = useState<HTMLAudioElement | null>(
     null

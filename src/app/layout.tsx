@@ -4,12 +4,14 @@ import { UserProvider } from "@/contexts/user.context";
 import { ToastContainer } from "react-toastify";
 import "@/scss/global.scss";
 import "react-toastify/dist/ReactToastify.css";
+import Favicon from "../assets/icon.webp";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "RiotFy",
-  description: "RiotFy",
+  title: "Seasson",
+  description: "Seasson",
+  icons: [{ rel: "icon", url: Favicon.src }],
 };
 
 export default function RootLayout({

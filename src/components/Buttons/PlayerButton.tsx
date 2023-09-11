@@ -1,6 +1,7 @@
 import { IplayerButton } from "@/interfaces/musics.interface";
 import { ImPause } from "react-icons/im";
 import { GrCaretNext } from "react-icons/gr";
+import styles from "./styles.module.scss";
 
 const PlayerButton = ({
   handlePlay,
@@ -11,8 +12,12 @@ const PlayerButton = ({
   const Icons = isPlaying ? ImPause : GrCaretNext;
 
   return (
-    <button type="button" onClick={callback}>
-      <Icons />
+    <button
+      className={styles.container__playerButton}
+      type="button"
+      onClick={callback}
+    >
+      <Icons size={13} />
     </button>
   );
 };

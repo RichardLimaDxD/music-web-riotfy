@@ -6,17 +6,23 @@ import { FiRepeat, FiVolume2 } from "react-icons/fi";
 import { PiArrowsInSimple } from "react-icons/pi";
 import { AiFillHeart } from "react-icons/ai";
 import { RxReload } from "react-icons/rx";
+import styles from "./styles.module.scss";
 
 const Player = () => {
   const { handlePLay, handlePause, isPlaying, skipNext, skipPrev } =
     useMusics();
   return (
-    <footer>
+    <footer className={styles.container__footerPlayer}>
       <div>
         <button>
           <AiFillHeart />
         </button>
+        <h2>musica</h2>
 
+        <p>nome do artista</p>
+      </div>
+
+      <div>
         <button>
           <RxReload />
         </button>
@@ -43,7 +49,9 @@ const Player = () => {
         >
           <GrFormNext />
         </button>
+      </div>
 
+      <div>
         <button>
           <FiVolume2 />
         </button>
