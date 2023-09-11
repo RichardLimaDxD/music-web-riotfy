@@ -1,14 +1,10 @@
 "use client";
 import { ImusicCard } from "@/interfaces/musics.interface";
-import { GrFormNext, GrFormPrevious } from "react-icons/gr";
-import { FiRepeat, FiVolume2 } from "react-icons/fi";
-import { RxReload } from "react-icons/rx";
-import { PiArrowsInSimple } from "react-icons/pi";
-import { AiFillHeart } from "react-icons/ai";
 import Link from "next/link";
 import { PlayerButton } from "../../Buttons/PlayerButton";
 import { Progress } from "../../Progress";
 import { useMusics } from "@/hooks/musics.hook";
+import styles from "../styles.module.scss";
 
 const CardMusic = ({ musics }: ImusicCard) => {
   const { currentMusic, handlePause, isPlaying, handleUpdateCurrentMusic } =
@@ -22,17 +18,15 @@ const CardMusic = ({ musics }: ImusicCard) => {
   };
 
   return (
-    <li>
+    <li className={styles.container__cards}>
       <Link href={`musics/${musics.id}`}>
-        <div>
-          <p>{musics.name}</p>
-          <img
-            src={musics?.cover_image}
-            alt={musics?.name}
-            width={60}
-            height={45}
-          />
-        </div>
+        <span>{musics.name}</span>
+        <img
+          src={musics?.cover_image}
+          alt={musics?.name}
+          width={60}
+          height={45}
+        />
       </Link>
 
       <Progress musics={musics}>
