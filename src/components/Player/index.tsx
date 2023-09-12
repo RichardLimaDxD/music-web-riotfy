@@ -7,60 +7,66 @@ import { PiArrowsInSimple } from "react-icons/pi";
 import { AiFillHeart } from "react-icons/ai";
 import { RxReload } from "react-icons/rx";
 import styles from "./styles.module.scss";
+import { PlayerProgress } from "./PlayerProgress";
 
 const Player = () => {
   const { handlePLay, handlePause, isPlaying, skipNext, skipPrev } =
     useMusics();
   return (
-    <footer className={styles.container__footerPlayer}>
-      <div>
-        <button>
-          <AiFillHeart />
-        </button>
-        <h2>musica</h2>
+    <>
+      <PlayerProgress />
+      <footer className={styles.container__footerPlayer}>
+        <div className={styles.container__divFooter}>
+          <div className={styles.container__divHeart}>
+            <button>
+              <AiFillHeart />
+            </button>
+            <h2>musica</h2>
 
-        <p>nome do artista</p>
-      </div>
+            <p>nome do artista</p>
+          </div>
 
-      <div>
-        <button>
-          <RxReload />
-        </button>
+          <button>
+            <FiRepeat />
+          </button>
 
-        <button>
-          <FiRepeat />
-        </button>
+          <div className={styles.container__divPlayerButton}>
+            <button type="button" onClick={() => skipPrev()}>
+              <GrFormPrevious />
+            </button>
 
-        <button onClick={() => skipPrev()}>
-          <GrFormPrevious />
-        </button>
+            <PlayerButton
+              handlePause={handlePause}
+              handlePlay={handlePLay}
+              isPlaying={isPlaying}
+            />
 
-        <PlayerButton
-          handlePause={handlePause}
-          handlePlay={handlePLay}
-          isPlaying={isPlaying}
-        />
+            <button
+              type="button"
+              onClick={() => {
+                skipNext();
+              }}
+            >
+              <GrFormNext />
+            </button>
+          </div>
 
-        <button
-          type="button"
-          onClick={() => {
-            skipNext();
-          }}
-        >
-          <GrFormNext />
-        </button>
-      </div>
+          <button>
+            <RxReload />
+          </button>
 
-      <div>
-        <button>
-          <FiVolume2 />
-        </button>
+          <div className={styles.container__divVolume}>
+            <button>
+              <FiVolume2 />
+            </button>
 
-        <button>
-          <PiArrowsInSimple />
-        </button>
-      </div>
-    </footer>
+            <button>
+              <PiArrowsInSimple />
+            </button>
+          </div>
+        </div>
+      </footer>
+    </>
   );
 };
 
