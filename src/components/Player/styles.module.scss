@@ -1,31 +1,115 @@
 @use "../../scss/abstract/variables" as *;
 
 .container__footerPlayer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
   background-color: $color-purple;
 
   position: fixed;
   bottom: 0;
 
-  height: 55px;
+  height: 48px;
   width: 100%;
+}
 
-  div:first-child {
+.container__divFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 0 1rem;
+
+  height: 100%;
+
+  button {
+    border: none;
+
+    background: transparent;
+
+    color: $color-green;
+  }
+
+  button > svg {
+    font-size: 1rem;
+  }
+}
+
+.container__divHeart {
+  display: none;
+
+  p {
     display: none;
   }
 
-  div > p {
+  h2 {
     display: none;
   }
+}
 
-  div > h2 {
-    display: none;
+.container__divPlayerButton {
+  display: flex;
+  gap: 1rem;
+
+  button {
+    border: none;
+
+    background: transparent;
+
+    color: $color-green;
   }
 
-  div:last-child {
-    display: none;
+  button > svg {
+    font-size: 1.5rem;
+  }
+
+  button > svg > polyline {
+    stroke: $color-gray-white;
+  }
+}
+
+.container__divVolume {
+  display: none;
+}
+
+.container__inputProgress {
+  position: relative;
+  bottom: 17px;
+  z-index: 2;
+
+  width: 98%;
+  height: 0.4rem;
+
+  appearance: none;
+  border-radius: 0.5rem;
+  background: gray;
+  background-image: linear-gradient(pink, pink);
+  background-size: 0% 100%;
+  background-repeat: no-repeat;
+
+  &::-webkit-slider-thumb {
+    background-image: linear-gradient(pink, pink);
+  }
+
+  &::-moz-range-thumb {
+    appearance: none;
+  }
+
+  &:hover {
+    background-image: linear-gradient(pink, pink);
+
+    &::-webkit-slider-thumb {
+      width: 1.5rem;
+      height: 1.5rem;
+      border-radius: 50%;
+      background: pink;
+      cursor: pointer;
+    }
+
+    &::-moz-range-thumb {
+      width: 1.5rem;
+      height: 1.5rem;
+
+      border-radius: 50%;
+      background: pink;
+      cursor: pointer;
+    }
   }
 }
