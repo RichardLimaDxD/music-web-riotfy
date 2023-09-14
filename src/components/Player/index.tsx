@@ -6,8 +6,11 @@ import { FiRepeat, FiVolume2 } from "react-icons/fi";
 import { PiArrowsInSimple } from "react-icons/pi";
 import { AiFillHeart } from "react-icons/ai";
 import { RxReload } from "react-icons/rx";
-import styles from "./styles.module.scss";
 import { PlayerProgress } from "./PlayerProgress";
+import Image from "next/image";
+import rotate from "../../assets/rotate-cw.svg";
+import repeat from "../../assets/repeat.svg";
+import styles from "./styles.module.scss";
 
 const Player = () => {
   const { handlePLay, handlePause, isPlaying, skipNext, skipPrev } =
@@ -21,16 +24,18 @@ const Player = () => {
             <button>
               <AiFillHeart />
             </button>
-            <h2>musica</h2>
+            <div>
+              <h2>musica</h2>
 
-            <p>nome do artista</p>
+              <p>nome do artista</p>
+            </div>
           </div>
 
-          <button>
-            <FiRepeat />
-          </button>
-
           <div className={styles.container__divPlayerButton}>
+            <button>
+              <Image src={repeat} alt="repeat" />
+            </button>
+
             <button type="button" onClick={() => skipPrev()}>
               <GrFormPrevious />
             </button>
@@ -49,11 +54,11 @@ const Player = () => {
             >
               <GrFormNext />
             </button>
-          </div>
 
-          <button>
-            <RxReload />
-          </button>
+            <button>
+              <Image src={rotate} alt="rotate" />
+            </button>
+          </div>
 
           <div className={styles.container__divVolume}>
             <button>
