@@ -38,10 +38,7 @@ const UserProvider = ({ children }: IpropsDefault) => {
     try {
       const response = await api.post("/login", formData);
       const { token } = response.data;
-      setCookie(null, "riotfy.token", token, {
-        maxAge: 60 * 30,
-        path: "/",
-      });
+      setCookie(null, "riotfy.token", token);
       setUser(response.data);
       router.push("/dashboard");
       Toastfy({ message: "Bem vindo(a)!", isSucess: true });

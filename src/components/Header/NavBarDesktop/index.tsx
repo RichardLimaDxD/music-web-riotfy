@@ -1,11 +1,9 @@
-import { ShowMenuButton } from "@/components/Buttons/ShowMenuButton";
 import Link from "next/link";
 import styles from "../styles.module.scss";
 
-const NavBarMobile = () => {
+const NavBarDesktop = () => {
   return (
-    <nav className={styles.container__menuNavMobile}>
-      <ShowMenuButton />
+    <nav className={styles.container__menuNavDesktop}>
       <ul>
         <li>
           <Link href={""}>Início</Link>
@@ -23,4 +21,4 @@ const NavBarMobile = () => {
   );
 };
 
-export { NavBarMobile };
+export { NavBarDesktop };

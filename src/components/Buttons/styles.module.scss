@@ -23,3 +23,9 @@
     fill: $color-green;
   }
 }
+
+@media (min-width: 811px) {
+  .container__buttonMenu {
+    display: none;
+  }
+}
