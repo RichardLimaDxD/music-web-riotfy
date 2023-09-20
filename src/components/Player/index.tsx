@@ -2,19 +2,82 @@
 import { GrFormNext, GrFormPrevious } from "react-icons/gr";
 import { PlayerButton } from "../Buttons/PlayerButton";
 import { useMusics } from "@/hooks/musics.hook";
-import { FiRepeat, FiVolume2 } from "react-icons/fi";
+import { FiVolume2 } from "react-icons/fi";
 import { PiArrowsInSimple } from "react-icons/pi";
 import { AiFillHeart } from "react-icons/ai";
-import { RxReload } from "react-icons/rx";
 import { PlayerProgress } from "./PlayerProgress";
+import { ChangeEvent } from "react";
+import { ContainerTimerProgress } from "./ContainerTimerProgress";
 import Image from "next/image";
 import rotate from "../../assets/rotate-cw.svg";
 import repeat from "../../assets/repeat.svg";
 import styles from "./styles.module.scss";
 
 const Player = () => {
-  const { handlePLay, handlePause, isPlaying, skipNext, skipPrev } =
-    useMusics();
+  const {
+    handlePLay,
+    handlePause,
+    isPlaying,
+    skipNext,
+    skipPrev,
+    currentMusicName,
+    currentMusic,
+    music,
+    setCurrentMusicName,
+    setCurrentMusicArtist,
+    currentMusicArtist,
+    setVolume,
+    volume,
+    showVolume,
+    setShowVolume,
+  } = useMusics();
+
+  const handleSkipNext = () => {
+    skipNext();
+    if (currentMusic) {
+      const foundIndex = music.findIndex(
+        (playListTrack) => currentMusic.src === playListTrack.music_url
+      );
+      if (foundIndex !== -1) {
+        const nextIndex = (foundIndex + 1) % music.length;
+        const nextMusic = music[nextIndex];
+        if (nextMusic) {
+          setCurrentMusicName(nextMusic.name);
+          setCurrentMusicArtist(nextMusic.artist);
+        }
+      }
+    }
+  };
+
+  const handleSkipPrev = () => {
+    skipPrev();
+    if (currentMusic) {
+      const foundIndex = music.findIndex(
+        (playListTrack) => currentMusic.src === playListTrack.music_url
+      );
+      if (foundIndex !== -1) {
+        const prevIndex = (foundIndex - 1 + music.length) % music.length;
+        const prevMusic = music[prevIndex];
+        if (prevMusic) {
+          setCurrentMusicName(prevMusic.name);
+          setCurrentMusicArtist(prevMusic.artist);
+        }
+      }
+    }
+  };
+
+  const handleVolumeChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const newVolume = parseInt(event.target.value, 10);
+    setVolume(newVolume);
+    if (currentMusic) {
+      currentMusic.volume = newVolume / 100;
+    }
+  };
+
+  const handleVolumeSetting = () => {
+    setShowVolume((volume) => !volume);
+  };
+
   return (
     <>
       <PlayerProgress />
@@ -25,9 +88,11 @@ const Player = () => {
               <AiFillHeart />
             </button>
             <div>
-              <h2>musica</h2>
+              <h2>
+                {currentMusicName ? currentMusicName : "Escolha uma música"}
+              </h2>
 
-              <p>nome do artista</p>
+              <p>{currentMusicArtist ? currentMusicArtist : "..."}</p>
             </div>
           </div>
 
@@ -36,7 +101,7 @@ const Player = () => {
               <Image src={repeat} alt="repeat" />
             </button>
 
-            <button type="button" onClick={() => skipPrev()}>
+            <button type="button" onClick={() => handleSkipPrev()}>
               <GrFormPrevious />
             </button>
 
@@ -46,12 +111,7 @@ const Player = () => {
               isPlaying={isPlaying}
             />
 
-            <button
-              type="button"
-              onClick={() => {
-                skipNext();
-              }}
-            >
+            <button type="button" onClick={() => handleSkipNext()}>
               <GrFormNext />
             </button>
 
@@ -61,10 +121,20 @@ const Player = () => {
           </div>
 
           <div className={styles.container__divVolume}>
-            <button>
+            <button onClick={() => handleVolumeSetting()}>
               <FiVolume2 />
             </button>
+            {showVolume ? (
+              <input
+                type="range"
+                min="0"
+                max="100"
+                value={volume}
+                onChange={handleVolumeChange}
+              />
+            ) : null}
 
+            <ContainerTimerProgress />
             <button>
               <PiArrowsInSimple />
             </button>

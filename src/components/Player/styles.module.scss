@@ -111,6 +111,17 @@
   }
 }
 
+.container__timerProgress {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  span {
+    color: $color-gray-white;
+    font-size: 0.7rem;
+  }
+}
+
 @media (min-width: 811px) {
   .container__divFooter {
     justify-content: space-between;
@@ -148,10 +159,18 @@
 
   .container__divVolume {
     display: flex;
+    gap: 0.4rem;
+    align-items: center;
 
     button > svg {
       font-size: 1rem;
       color: $color-gray-white;
+    }
+
+    input {
+      height: 20px;
+      accent-color: $color-green;
+      width: 35%;
     }
   }
 
