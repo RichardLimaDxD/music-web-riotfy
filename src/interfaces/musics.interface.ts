@@ -53,6 +53,8 @@ interface ImusicProps {
   setVolume: Dispatch<SetStateAction<number>>;
   showVolume: boolean;
   setShowVolume: Dispatch<SetStateAction<boolean>>;
+  musicClient: Imusic[];
+  setMusicClient: Dispatch<SetStateAction<Imusic[]>>;
 }
 
 interface IplayerButton {
