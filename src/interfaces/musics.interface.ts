@@ -45,6 +45,14 @@ interface ImusicProps {
   handleUpdateCurrentMusic: (musicURL: string) => void;
   skipNext: () => void;
   skipPrev: () => void;
+  currentMusicName: string | null;
+  setCurrentMusicName: Dispatch<SetStateAction<string | null>>;
+  currentMusicArtist: string | null;
+  setCurrentMusicArtist: Dispatch<SetStateAction<string | null>>;
+  volume: number;
+  setVolume: Dispatch<SetStateAction<number>>;
+  showVolume: boolean;
+  setShowVolume: Dispatch<SetStateAction<boolean>>;
 }
 
 interface IplayerButton {

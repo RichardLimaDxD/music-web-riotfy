@@ -1,5 +1,5 @@
 "use client";
-import { createContext, useEffect, useState } from "react";
+import { createContext, use, useEffect, useState } from "react";
 import { ImusicProps, Imusic } from "@/interfaces/musics.interface";
 import { IpropsDefault } from "@/interfaces/users.interface";
 import { usePlayPauseAudio } from "@/hooks/playPauseAudio";
@@ -11,6 +11,12 @@ const MusicContext = createContext<ImusicProps>({} as ImusicProps);
 
 const MusicProvider = ({ children }: IpropsDefault) => {
   const [music, setMusic] = useState<Imusic[]>([]);
+  const [currentMusicName, setCurrentMusicName] = useState<null | string>(null);
+  const [volume, setVolume] = useState<number>(100);
+  const [showVolume, setShowVolume] = useState<boolean>(false);
+  const [currentMusicArtist, setCurrentMusicArtist] = useState<null | string>(
+    null
+  );
   const [currentMusic, setCurrentMusic] = useState<HTMLAudioElement | null>(
     null
   );
@@ -20,8 +26,12 @@ const MusicProvider = ({ children }: IpropsDefault) => {
   const router = useRouter();
 
   useEffect(() => {
+    if (currentMusic) {
+      currentMusic.volume = volume / 100;
+    }
+
     currentMusic?.play();
-  }, [currentMusic]);
+  }, [volume, currentMusic]);
 
   useEffect(() => {
     if (!cookies["riotfy.token"]) {
@@ -85,6 +95,14 @@ const MusicProvider = ({ children }: IpropsDefault) => {
         handleUpdateCurrentMusic,
         skipNext,
         skipPrev,
+        currentMusicName,
+        setCurrentMusicName,
+        currentMusicArtist,
+        setCurrentMusicArtist,
+        volume,
+        setVolume,
+        showVolume,
+        setShowVolume,
       }}
     >
       {children}
