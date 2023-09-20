@@ -6,11 +6,13 @@ import { usePlayPauseAudio } from "@/hooks/playPauseAudio";
 import { destroyCookie, parseCookies } from "nookies";
 import { useRouter } from "next/navigation";
 import { useUsers } from "@/hooks/users.hook";
+import api from "@/services/api";
 
 const MusicContext = createContext<ImusicProps>({} as ImusicProps);
 
 const MusicProvider = ({ children }: IpropsDefault) => {
   const [music, setMusic] = useState<Imusic[]>([]);
+  const [musicClient, setMusicClient] = useState<Imusic[]>([]);
   const [currentMusicName, setCurrentMusicName] = useState<null | string>(null);
   const [volume, setVolume] = useState<number>(100);
   const [showVolume, setShowVolume] = useState<boolean>(false);
@@ -24,6 +26,25 @@ const MusicProvider = ({ children }: IpropsDefault) => {
   const { setUser } = useUsers();
   const cookies = parseCookies();
   const router = useRouter();
+
+  const retrieveMusicClient = async () => {
+    try {
+      const response = await api.get("/musics", {
+        headers: {
+          Authorization: `Bearer ${cookies["riotfy.token"]}`,
+        },
+      });
+      setMusicClient(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    if (cookies["riotfy.token"]) {
+      retrieveMusicClient();
+    }
+  }, []);
 
   useEffect(() => {
     if (currentMusic) {
@@ -103,6 +124,8 @@ const MusicProvider = ({ children }: IpropsDefault) => {
         setVolume,
         showVolume,
         setShowVolume,
+        musicClient,
+        setMusicClient,
       }}
     >
       {children}

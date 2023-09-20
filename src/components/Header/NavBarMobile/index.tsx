@@ -8,11 +8,11 @@ const NavBarMobile = () => {
       <ShowMenuButton />
       <ul>
         <li>
-          <Link href={""}>Início</Link>
+          <Link href={"/dashboard"}>Início</Link>
         </li>
 
         <li>
-          <Link href={""}>Buscar</Link>
+          <Link href={"/dashboard/search"}>Buscar</Link>
         </li>
 
         <li>
