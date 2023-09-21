@@ -1,3 +1,4 @@
+"use client";
 import { useEffect, useRef } from "react";
 import { IprogressProps } from "@/interfaces/musics.interface";
 import { useMusics } from "@/hooks/musics.hook";

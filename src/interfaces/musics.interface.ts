@@ -34,6 +34,10 @@ interface Imusic {
   music_url?: string;
 }
 
+interface IsearchMusic {
+  filteredMusic: Imusic[];
+}
+
 interface ImusicProps {
   music: Imusic[];
   setMusic: Dispatch<SetStateAction<Imusic[]>>;
@@ -53,8 +57,10 @@ interface ImusicProps {
   setVolume: Dispatch<SetStateAction<number>>;
   showVolume: boolean;
   setShowVolume: Dispatch<SetStateAction<boolean>>;
-  musicClient: Imusic[];
-  setMusicClient: Dispatch<SetStateAction<Imusic[]>>;
+  search: string;
+  setSearch: Dispatch<SetStateAction<string>>;
+  searchValue: string;
+  setSearchValue: Dispatch<SetStateAction<string>>;
 }
 
 interface IplayerButton {
@@ -72,4 +78,5 @@ export type {
   ImusicCard,
   IprogressProps,
   ImusicRender,
+  IsearchMusic,
 };
