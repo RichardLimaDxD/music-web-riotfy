@@ -6,6 +6,7 @@ import {
   IpropsUser,
   Iseasson,
   Iusers,
+  TuserSchema,
 } from "@/interfaces/users.interface";
 import { useRouter } from "next/navigation";
 import { destroyCookie, parseCookies, setCookie } from "nookies";
@@ -18,6 +19,8 @@ const UserProvider = ({ children }: IpropsDefault) => {
   const [user, setUser] = useState<Iusers | null>(null);
   const [openNav, setIsOpenNav] = useState<boolean>(false);
   const [userOptions, setUserOptions] = useState<boolean>(false);
+  const [openSettingUser, setOpenSettingUser] = useState<boolean>(false);
+  const [deleteUserModal, setDeleteUserModal] = useState<boolean>(false);
   const cookies = parseCookies();
   const router = useRouter();
 
@@ -57,17 +60,64 @@ const UserProvider = ({ children }: IpropsDefault) => {
         },
       });
       setUser(response.data);
+      const { admin } = response.data;
+      setCookie(null, "riotfy.isAdmin", admin);
     } catch (error) {}
   };
 
   const logOut = () => {
     destroyCookie(null, "riotfy.token");
+    destroyCookie(null, "riotfy.isAdmin");
 
     setUser(null);
 
     Toastfy({ message: "Saindo...", isSucess: true });
 
     router.push("/");
+  };
+
+  const updateUser = async (formData: TuserSchema) => {
+    try {
+      const response = await api.patch(`/users/${user?.id}`, formData, {
+        headers: {
+          Authorization: `Bearer ${cookies["riotfy.token"]}`,
+        },
+      });
+
+      setUser(response.data);
+      setOpenSettingUser(false);
+
+      Toastfy({ message: "Perfil modificado!", isSucess: true });
+    } catch (error) {
+      Toastfy({
+        message: "Erro ao modificar perfil, verifique as informações!",
+      });
+      setOpenSettingUser(false);
+    }
+  };
+
+  const deleteUser = async () => {
+    try {
+      await api.delete(`/users/${user?.id}`, {
+        headers: {
+          Authorization: `Bearer ${cookies["riotfy.token"]}`,
+        },
+      });
+      setDeleteUserModal(false);
+      setOpenSettingUser(false);
+
+      destroyCookie(null, "riotfy.token");
+
+      setUser(null);
+
+      Toastfy({ message: "Perfil Deletado!", isSucess: true });
+
+      router.push("/");
+    } catch (error) {
+      Toastfy({
+        message: "Algo deu errado ao deletar o perfil,tente novamente!",
+      });
+    }
   };
 
   useEffect(() => {
@@ -89,6 +139,12 @@ const UserProvider = ({ children }: IpropsDefault) => {
         setIsOpenNav,
         userOptions,
         setUserOptions,
+        updateUser,
+        openSettingUser,
+        setOpenSettingUser,
+        deleteUser,
+        deleteUserModal,
+        setDeleteUserModal,
       }}
     >
       <MusicProvider>{children}</MusicProvider>

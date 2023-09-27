@@ -12,6 +12,7 @@ import Image from "next/image";
 import rotate from "../../assets/rotate-cw.svg";
 import repeat from "../../assets/repeat.svg";
 import styles from "./styles.module.scss";
+import Toastfy from "../Toastfy";
 
 const Player = () => {
   const {
@@ -33,36 +34,44 @@ const Player = () => {
   } = useMusics();
 
   const handleSkipNext = () => {
-    skipNext();
-    if (currentMusic) {
-      const foundIndex = music.findIndex(
-        (playListTrack) => currentMusic.src === playListTrack.music_url
-      );
-      if (foundIndex !== -1) {
-        const nextIndex = (foundIndex + 1) % music.length;
-        const nextMusic = music[nextIndex];
-        if (nextMusic) {
-          setCurrentMusicName(nextMusic.name);
-          setCurrentMusicArtist(nextMusic.artist);
+    try {
+      skipNext();
+      if (currentMusic) {
+        const foundIndex = music.findIndex(
+          (playListTrack) => currentMusic.src === playListTrack.music_url
+        );
+        if (foundIndex !== -1) {
+          const nextIndex = (foundIndex + 1) % music.length;
+          const nextMusic = music[nextIndex];
+          if (nextMusic) {
+            setCurrentMusicName(nextMusic.name);
+            setCurrentMusicArtist(nextMusic.artist);
+          }
         }
       }
+    } catch (error) {
+      Toastfy({ message: "Por favor, selecione uma música" });
     }
   };
 
   const handleSkipPrev = () => {
-    skipPrev();
-    if (currentMusic) {
-      const foundIndex = music.findIndex(
-        (playListTrack) => currentMusic.src === playListTrack.music_url
-      );
-      if (foundIndex !== -1) {
-        const prevIndex = (foundIndex - 1 + music.length) % music.length;
-        const prevMusic = music[prevIndex];
-        if (prevMusic) {
-          setCurrentMusicName(prevMusic.name);
-          setCurrentMusicArtist(prevMusic.artist);
+    try {
+      skipPrev();
+      if (currentMusic) {
+        const foundIndex = music.findIndex(
+          (playListTrack) => currentMusic.src === playListTrack.music_url
+        );
+        if (foundIndex !== -1) {
+          const prevIndex = (foundIndex - 1 + music.length) % music.length;
+          const prevMusic = music[prevIndex];
+          if (prevMusic) {
+            setCurrentMusicName(prevMusic.name);
+            setCurrentMusicArtist(prevMusic.artist);
+          }
         }
       }
+    } catch (error) {
+      Toastfy({ message: "Por favor, selecione uma música" });
     }
   };
 

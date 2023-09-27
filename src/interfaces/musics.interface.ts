@@ -8,6 +8,10 @@ interface ImusicCard {
   musics: TmusicData;
 }
 
+interface ImusicsData {
+  musics: TmusicData[];
+}
+
 interface ImusicRender {
   music: TmusicData[];
 }
@@ -61,6 +65,29 @@ interface ImusicProps {
   setSearch: Dispatch<SetStateAction<string>>;
   searchValue: string;
   setSearchValue: Dispatch<SetStateAction<string>>;
+  page: number;
+  setPage: Dispatch<SetStateAction<number>>;
+  musicFile: File | null;
+  setMusicFile: Dispatch<SetStateAction<File | null>>;
+  musicInfo: {
+    name: string;
+    artist: string;
+    album: string;
+    genre: string;
+    year: string;
+  };
+  setMusicInfo: Dispatch<
+    SetStateAction<{
+      name: string;
+      artist: string;
+      album: string;
+      genre: string;
+      year: string;
+    }>
+  >;
+  coverImage: File | null;
+  setCoverImage: Dispatch<SetStateAction<File | null>>;
+  createMusic: () => void;
 }
 
 interface IplayerButton {
@@ -79,4 +106,5 @@ export type {
   IprogressProps,
   ImusicRender,
   IsearchMusic,
+  ImusicsData,
 };
