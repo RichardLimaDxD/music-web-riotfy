@@ -18,7 +18,7 @@ const SearchForm = () => {
         onChange={(event) => setSearchValue(event.target.value)}
         value={searchValue}
         type="text"
-        placeholder="Search music"
+        placeholder="Buscar musica..."
       />
       <button type="submit">
         <AiOutlineSearch />

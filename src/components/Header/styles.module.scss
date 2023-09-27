@@ -81,9 +81,7 @@
     flex-direction: column;
     gap: 0.5rem;
 
-    background: linear-gradient($color-purple, $color-blue, $color-purple);
-
-    box-shadow: 5px 1px 7px 1px $color-gray-white;
+    background: linear-gradient($color-purple, $color-player-purple);
 
     width: 6rem;
 
@@ -100,6 +98,10 @@
 
 .container__menuNavDesktop {
   display: none;
+
+  ul > li > a:hover {
+    border-bottom: 2px solid $color-green;
+  }
 }
 
 @media (min-width: 811px) {
@@ -168,15 +170,20 @@
 
 @media (min-width: 1023px) {
   .container__header {
+    padding: 0 8rem;
+
     h1 {
       font-size: 1.3rem;
       width: 260px;
+    }
+    div > ul {
+      right: 117px;
     }
   }
 
   .container__menuNavDesktop {
     ul > li {
-      font-size: 1rem;
+      font-size: 0.8rem;
     }
   }
 }

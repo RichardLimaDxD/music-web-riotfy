@@ -1,28 +1,43 @@
 "use client";
-import { createContext, use, useEffect, useState } from "react";
-import { ImusicProps, Imusic } from "@/interfaces/musics.interface";
+import { createContext, useEffect, useState } from "react";
+import { ImusicProps, Imusic, TmusicData } from "@/interfaces/musics.interface";
 import { IpropsDefault } from "@/interfaces/users.interface";
 import { usePlayPauseAudio } from "@/hooks/playPauseAudio";
 import { destroyCookie, parseCookies } from "nookies";
 import { useRouter } from "next/navigation";
 import { useUsers } from "@/hooks/users.hook";
+import api from "@/services/api";
+import Toastfy from "@/components/Toastfy";
 
 const MusicContext = createContext<ImusicProps>({} as ImusicProps);
 
 const MusicProvider = ({ children }: IpropsDefault) => {
-  const [music, setMusic] = useState<Imusic[]>([]);
   const [currentMusicName, setCurrentMusicName] = useState<null | string>(null);
-  const [volume, setVolume] = useState<number>(100);
   const [showVolume, setShowVolume] = useState<boolean>(false);
-  const [search, setSearch] = useState<string>("");
   const [searchValue, setSearchValue] = useState<string>("");
+  const [volume, setVolume] = useState<number>(100);
+  const [music, setMusic] = useState<Imusic[]>([]);
+  const [search, setSearch] = useState<string>("");
+  const [page, setPage] = useState<number>(0);
+
+  const [musicFile, setMusicFile] = useState<File | null>(null);
+  const [coverImage, setCoverImage] = useState<File | null>(null);
+  const [musicInfo, setMusicInfo] = useState({
+    name: "",
+    artist: "",
+    album: "",
+    genre: "",
+    year: "",
+  });
 
   const [currentMusicArtist, setCurrentMusicArtist] = useState<null | string>(
     null
   );
+
   const [currentMusic, setCurrentMusic] = useState<HTMLAudioElement | null>(
     null
   );
+
   const { isPlaying, setIsPlaying } = usePlayPauseAudio(currentMusic);
   const { setUser } = useUsers();
   const cookies = parseCookies();
@@ -85,6 +100,54 @@ const MusicProvider = ({ children }: IpropsDefault) => {
     }
   };
 
+  const uploadfiles = async (
+    musicId: string,
+    musicFile: File,
+    coverImage: File
+  ) => {
+    const config = {
+      headers: {
+        "Content-Type": "multipart/form-data",
+        Authorization: `Bearer ${cookies["riotfy.token"]}`,
+      },
+    };
+
+    const fd = new FormData();
+    if (musicFile.name.includes("mp3") && coverImage.name.includes("jpg")) {
+      fd.append("music", musicFile);
+      fd.append("cover_image", coverImage);
+      console.log(fd);
+      const status = await api
+        .patch(`/musics/upload/${musicId}`, fd, config)
+        .then((res) => {
+          return res.status;
+        });
+      return { status, musicId };
+    }
+    return { status: 400, musicId };
+  };
+
+  const createMusic = async () => {
+    try {
+      const response = await api.post("/musics", musicInfo, {
+        headers: {
+          Authorization: `Bearer ${cookies["riotfy.token"]}`,
+        },
+      });
+
+      await uploadfiles(response.data.id, musicFile!, coverImage!);
+
+      Toastfy({
+        message: "Música cadastrada com sucesso!",
+        isSucess: true,
+      });
+      router.push("/dashboard");
+    } catch (error) {
+      console.log(error);
+      Toastfy({ message: "Erro ao criar a música" });
+    }
+  };
+
   return (
     <MusicContext.Provider
       value={{
@@ -110,6 +173,15 @@ const MusicProvider = ({ children }: IpropsDefault) => {
         setSearch,
         searchValue,
         setSearchValue,
+        page,
+        setPage,
+        musicInfo,
+        setMusicInfo,
+        musicFile,
+        setMusicFile,
+        coverImage,
+        setCoverImage,
+        createMusic,
       }}
     >
       {children}

@@ -14,7 +14,7 @@ const NavBarDesktop = () => {
         </li>
 
         <li>
-          <Link href={""}>Suas bibliotecas</Link>
+          <Link href={"/dashboard/playlist"}>Suas bibliotecas</Link>
         </li>
       </ul>
     </nav>

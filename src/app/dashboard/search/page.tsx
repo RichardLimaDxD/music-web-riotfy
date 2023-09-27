@@ -4,6 +4,7 @@ import { SearchRenderCard } from "@/components/SearchRenderCard";
 import { Player } from "@/components/Player";
 import { TmusicData } from "@/interfaces/musics.interface";
 import { SearchForm } from "@/components/Forms/searchForm";
+import styles from "./styles.module.scss";
 
 const Search = async () => {
   const response = await api.get("/musics");
@@ -12,7 +13,7 @@ const Search = async () => {
   return (
     <>
       <Header />
-      <section>
+      <section className={styles.container__sectionSearch}>
         <SearchForm />
         <SearchRenderCard music={music} />
       </section>

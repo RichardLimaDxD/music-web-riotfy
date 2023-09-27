@@ -3,8 +3,8 @@ import { Iusers } from "@/interfaces/users.interface";
 import { requestUserSchema } from "@/schemas/users.schemas";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import Link from "next/link";
 import { useUsers } from "@/hooks/users.hook";
+import Link from "next/link";
 import styles from "./styles.module.scss";
 
 const SignUpForm = () => {

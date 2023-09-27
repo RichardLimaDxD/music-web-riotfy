@@ -16,17 +16,13 @@ const SearchRenderCard = ({ music }: ImusicRender) => {
           findMusic.album.toLowerCase().includes(search.toLowerCase());
   });
 
-  if (search !== "") {
-    return (
-      <ul className={styles.container__musicCards}>
-        {filteredMusic.map((music: Imusic) => (
-          <SearchCreateCard key={music.id} musics={music} />
-        ))}
-      </ul>
-    );
-  }
-
-  return null;
+  return (
+    <ul className={styles.container__musicCards}>
+      {filteredMusic.map((music: Imusic) => (
+        <SearchCreateCard key={music.id} musics={music} />
+      ))}
+    </ul>
+  );
 };
 
 export { SearchRenderCard };
