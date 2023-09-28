@@ -2,6 +2,7 @@
 import { useMusics } from "@/hooks/musics.hook";
 import { useDropzone } from "react-dropzone";
 import { ImMusic } from "react-icons/im";
+import styles from "./styles.module.scss";
 
 const UploadMusicForm = () => {
   const { setMusicFile, setMusicInfo, musicInfo, setPage } = useMusics();
@@ -19,68 +20,55 @@ const UploadMusicForm = () => {
   const { getRootProps, getInputProps } = dropzone;
 
   return (
-    <div>
+    <div className={styles.container__uploadMusicDiv}>
       <div>
-        <p>Salvar música</p>
+        <h1>Salvar música</h1>
+        <label>
+          <div {...getRootProps()}>
+            <ImMusic />
+            <p>Arrasta e solte o áudio aqui</p>
+            <p>- OU -</p>
+            <button onClick={(e) => e.preventDefault()}>Busque aqui</button>
+            <p>Áudios suportados: mp3</p>
+          </div>
+        </label>
+        <input {...getInputProps()} />
 
         <div>
-          <div>
-            <label>
-              <div {...getRootProps()}>
-                <ImMusic />
-                <p>Arrasta e solte o áudio aqui</p>
-                <p>- OU -</p>
-                <button onClick={(e) => e.preventDefault()}>Busque aqui</button>
-                <p>Áudios suportados: mp3</p>
-              </div>
-            </label>
-            <input {...getInputProps()} />
-          </div>
-          <div>
-            <div>
-              <label>Nome</label>
-              <div>
-                <input
-                  type="text"
-                  value={musicInfo?.name}
-                  onChange={(e) => {
-                    setMusicInfo({ ...musicInfo, name: e.target.value });
-                  }}
-                  placeholder="Iron man"
-                />
-              </div>
-              <div>
-                <label htmlFor="album" className="user-form-label">
-                  Album
-                </label>
-                <div>
-                  <input
-                    type="text"
-                    value={musicInfo.album}
-                    onChange={(e) => {
-                      setMusicInfo({ ...musicInfo, album: e.target.value });
-                    }}
-                    placeholder="Paranoid"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="name">Artista</label>
-                  <div>
-                    <input
-                      type="text"
-                      value={musicInfo.artist}
-                      onChange={(e) => {
-                        setMusicInfo({ ...musicInfo, artist: e.target.value });
-                      }}
-                      placeholder="Black Sabbath"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div>
+          <label>Nome</label>
+
+          <input
+            type="text"
+            value={musicInfo?.name}
+            onChange={(e) => {
+              setMusicInfo({ ...musicInfo, name: e.target.value });
+            }}
+            placeholder="Iron man"
+          />
+
+          <label htmlFor="album" className="user-form-label">
+            Album
+          </label>
+
+          <input
+            type="text"
+            value={musicInfo.album}
+            onChange={(e) => {
+              setMusicInfo({ ...musicInfo, album: e.target.value });
+            }}
+            placeholder="Paranoid"
+          />
+
+          <label htmlFor="name">Artista</label>
+
+          <input
+            type="text"
+            value={musicInfo.artist}
+            onChange={(e) => {
+              setMusicInfo({ ...musicInfo, artist: e.target.value });
+            }}
+            placeholder="Black Sabbath"
+          />
           <button
             onClick={() => {
               setPage((currPage) => currPage + 1);
