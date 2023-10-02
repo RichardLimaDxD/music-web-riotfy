@@ -20,5 +20,5 @@ const Dashboard = async () => {
   );
 };
 
-export const revalidade = 1;
+export const revalidate = 1;
 export default Dashboard;
