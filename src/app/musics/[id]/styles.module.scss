@@ -1,0 +1,108 @@
+@use "../../../scss/abstract/variables" as *;
+
+.container__musicSection {
+  padding: 0 1rem;
+  color: $color-gray-white;
+
+  ul {
+    margin-top: 1rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    li {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 1rem;
+
+      img {
+        height: 35vh;
+        width: 100%;
+
+        border-radius: 8px;
+
+        box-shadow: 5px 6px 7px -5px $color-gray-white;
+      }
+
+      h1 {
+        font-size: 1.5rem;
+
+        font-family: $font-riot;
+      }
+
+      div {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+
+        font-size: 1rem;
+        font-family: $font-text;
+      }
+
+      button {
+        width: 2.5rem;
+        height: 2.5rem;
+
+        border-radius: 50%;
+
+        background: $color-player-purple;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        svg {
+          path {
+            fill: $color-gray-white;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 767px) {
+  .container__musicSection {
+    padding: 0 2rem;
+
+    ul {
+      li {
+        flex-direction: row;
+
+        img {
+          height: 50vh;
+          width: 65%;
+        }
+
+        div {
+          margin-top: 2rem;
+          font-size: 1.2rem;
+
+          button {
+            width: 3.5rem;
+            height: 3.5rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 1023px) {
+  .container__musicSection {
+    padding: 0 8rem;
+
+    ul {
+      li {
+        div {
+          gap: 1rem;
+          font-size: 1.5rem;
+        }
+      }
+    }
+  }
+}

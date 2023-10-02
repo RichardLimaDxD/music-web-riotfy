@@ -1,0 +1,205 @@
+@use "../../scss/abstract/variables" as *;
+
+.container__footerPlayer {
+  background-color: $color-purple;
+
+  position: fixed;
+  bottom: 0;
+
+  height: 48px;
+  width: 100%;
+}
+
+.container__divFooter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 0 1rem;
+
+  height: 100%;
+
+  button {
+    border: none;
+
+    color: $color-green;
+    background: transparent;
+  }
+}
+
+.container__divHeart {
+  display: none;
+}
+
+.container__divPlayerButton {
+  display: flex;
+  gap: 1rem;
+
+  button {
+    border: none;
+
+    background: transparent;
+
+    color: $color-green;
+  }
+
+  button > img {
+    width: 1rem;
+    height: 1rem;
+  }
+
+  button > svg {
+    font-size: 1.5rem;
+  }
+
+  button > svg > polyline {
+    stroke: $color-gray-white;
+  }
+}
+
+.container__divVolume {
+  display: none;
+}
+
+.container__inputProgress {
+  position: fixed;
+  bottom: 43px;
+  z-index: 2;
+
+  width: 98%;
+  height: 0.2rem;
+
+  appearance: none;
+  border-radius: 0.5rem;
+  background: $color-player-purple;
+  background-image: linear-gradient(
+    to right,
+    $color-green,
+    $color-green,
+    $color-blue
+  );
+  background-size: 0% 100%;
+  background-repeat: no-repeat;
+
+  &::-webkit-slider-thumb {
+    background-image: linear-gradient(to right, $color-green, $color-blue);
+  }
+
+  &::-moz-range-thumb {
+    appearance: none;
+  }
+
+  &:hover {
+    background-image: linear-gradient(to right, $color-green, $color-blue);
+
+    &::-webkit-slider-thumb {
+      width: 0.8rem;
+      height: 0.8rem;
+      border-radius: 50%;
+      background: linear-gradient(to right, $color-green, $color-blue);
+      cursor: pointer;
+    }
+
+    &::-moz-range-thumb {
+      width: 1rem;
+      height: 1rem;
+
+      border-radius: 50%;
+      background: $color-green;
+      cursor: pointer;
+    }
+  }
+}
+
+.container__timerProgress {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  span {
+    color: $color-gray-white;
+    font-size: 0.7rem;
+  }
+}
+
+@media (min-width: 811px) {
+  .container__divFooter {
+    justify-content: space-between;
+  }
+
+  .container__divHeart {
+    display: flex;
+    gap: 1rem;
+
+    button {
+      font-size: 1rem;
+    }
+
+    div {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+
+      color: $color-gray-white;
+
+      font-size: 0.8rem;
+    }
+
+    div > h2 {
+      font-size: 0.8rem;
+      font-weight: 600;
+      font-family: $font-text;
+    }
+
+    div > p {
+      color: $color-dark-gray;
+      font-family: $font-text;
+    }
+  }
+
+  .container__divVolume {
+    display: flex;
+    gap: 0.4rem;
+    align-items: center;
+
+    button > svg {
+      font-size: 1rem;
+      color: $color-gray-white;
+    }
+
+    button > a > svg {
+      font-size: 1rem;
+      color: $color-gray-white;
+    }
+
+    input {
+      height: 20px;
+      accent-color: $color-green;
+      width: 35%;
+    }
+  }
+
+  .container__inputProgress {
+    width: 99.5%;
+  }
+}
+
+@media (min-width: 1004px) {
+  .container__inputProgress {
+    width: 99.6%;
+
+    &::-webkit-slider-thumb {
+      appearance: none;
+    }
+  }
+}
+
+@media (min-width: 1023px) {
+  .container__footerPlayer {
+    height: 62px;
+  }
+
+  .container__inputProgress {
+    bottom: 57px;
+  }
+}

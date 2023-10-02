@@ -1,0 +1,59 @@
+@use "../../scss/abstract/variables" as *;
+
+.container__divSkipsNextAndPrevSection {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  span {
+    color: $color-gray-white;
+    font-size: 1rem;
+    font-family: $font-text;
+  }
+
+  button {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  button > svg {
+    font-size: 1rem;
+  }
+}
+
+.container__divCurrentName {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 10rem;
+
+  div {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  div > svg {
+    color: $color-green;
+  }
+
+  p {
+    font-size: 0.9rem;
+    font-weight: 600;
+
+    color: $color-black-title;
+  }
+}
+
+@media (min-width: 811px) {
+  .container__divCurrentName {
+    display: none;
+  }
+}

@@ -1,0 +1,31 @@
+@use "../../scss/abstract/variables" as *;
+
+.container__buttonMenu {
+  border: none;
+
+  background-color: transparent;
+
+  color: $color-gray-white;
+
+  svg {
+    font-size: 1.5rem;
+  }
+}
+
+.container__playerButton {
+  border: none;
+  border-radius: 0px 8px 8px 0px;
+
+  padding: 4px;
+  height: 100%;
+
+  svg {
+    fill: $color-green;
+  }
+}
+
+@media (min-width: 811px) {
+  .container__buttonMenu {
+    display: none;
+  }
+}

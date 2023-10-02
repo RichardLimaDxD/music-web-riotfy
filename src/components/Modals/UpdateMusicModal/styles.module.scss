@@ -1,0 +1,53 @@
+@use "../../../scss/abstract/variables" as *;
+
+.container__musicUpdateForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  width: 80%;
+
+  background: linear-gradient($color-purple, $color-player-purple);
+  color: $color-gray-white;
+
+  z-index: 3;
+  position: fixed;
+  top: 90px;
+  bottom: -100%;
+
+  left: 50%;
+  transform: translate(-50%, -15%);
+  animation: slideUp 0.5s ease-in-out forwards;
+
+  border: 1px solid $color-gray-white;
+  border-radius: 8px;
+  font-family: $font-text;
+}
+
+@keyframes slideUp {
+  0% {
+    bottom: -100%;
+  }
+  100% {
+    bottom: 0;
+  }
+}
+
+@media (min-width: 585px) {
+  .container__musicUpdateForm {
+    width: 55%;
+  }
+}
+
+@media (min-width: 585px) {
+  .container__musicUpdateForm {
+    width: 35%;
+  }
+}
+
+@media (min-width: 1023px) {
+  .container__musicUpdateForm {
+    gap: 1.5rem;
+    left: 40%;
+  }
+}
