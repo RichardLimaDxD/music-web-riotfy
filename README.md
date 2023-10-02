@@ -1,34 +1,65 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# RiotFy
 
-## Getting Started
+Para acessar o repositório do Backend, <a href="https://github.com/RichardLimaDxD/RiotFy" target="_blank">clique aqui</a>.
 
-First, run the development server:
+## Seções do projeto
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+- [Descrição](#✔️-descrição)
+- [Funcionalidades](#💻-funcionalidades)
+- [Tecnologias](#🔨-tecnologias)
+- [Instalação e Execução](#🚀-instalação-e-execução)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## ✔️ Descrição
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Riotfy é uma aplicação web sobre músicas com temática de League Of Legends, na qual é possivel reproduzir músicas, pausar, criar um usuário,criar músicas, editar músicas e usuário, e excluir uma música e um usuário.
+O figma como algumas partes do designer do projeto não foi feita por mim, <a href="https://www.figma.com/file/ncArmqcunPAxj6t8TMl6uR/Desafios---Codel%C3%A2ndia-(Copy)?type=design&node-id=80254-762&mode=design&t=1nGV82Y291rVWMrK-0" target="_blank">aqui</a> você pode estar encontrando o link do figma do projeto <a href="https://www.figma.com/file/ncArmqcunPAxj6t8TMl6uR/Desafios---Codel%C3%A2ndia-(Copy)?type=design&node-id=80254-762&mode=design&t=1nGV82Y291rVWMrK-0" target="_blank">(Desafio 23)</a>.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## 💻 Funcionalidades
 
-## Learn More
+- Cadastro de usuário;
 
-To learn more about Next.js, take a look at the following resources:
+<img src="./src/assets/readme/register.png" alt="register">
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Login;
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+<img src="./src/assets/readme/login.png" alt="login">
 
-## Deploy on Vercel
+## 🔨 Tecnologias
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- `npm`
+- `Vercel`
+- `NextJs13`
+- `Typescript`
+- `Git`
+- `Github`
+- `Figma`
+- `Axios`
+- `Sass`
+- `Toastify`
+- `Hook Form`
+- `Nookies`
+- `ESLint`
+- `Zod`
+- `React-dropzone`
+- `React-icons`
+- `Rc-slider`
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## 🚀 Instalação e Execução
+
+É necessário ter instalado em sua máquina o `Node.Js` e o gerenciador de pacotes `npm`.
+Para executar a aplicação localmente, siga estas etapas:
+
+1.  Clone este repositório;
+2.  Abra o repositório no `vscode` e abra um terminal para as instalação das dependências;
+3.  Rode os seguintes comandos no terminal:
+
+         npm install
+         npm run dev
+
+4.  Abra seu navegador e acesse o servidor pelo seguinte link:
+
+        http://localhost:3000
+
+5.  Se o backEnd estiver ativo, acesse por esse link:
+
+        http://localhost:3001
