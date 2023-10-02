@@ -5,8 +5,6 @@ import { RenderMusics } from "@/components/RenderMusics";
 import { Player } from "@/components/Player";
 import styles from "./styles.module.scss";
 
-export const revalidade = 3600;
-
 const Dashboard = async () => {
   const response = await api.get("/musics");
   const music: TmusicData[] = response.data;
@@ -22,4 +20,5 @@ const Dashboard = async () => {
   );
 };
 
+export const revalidade = 1;
 export default Dashboard;

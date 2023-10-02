@@ -17,9 +17,16 @@ interface IpropsUser {
   setIsOpenNav: Dispatch<SetStateAction<boolean>>;
   userOptions: boolean;
   setUserOptions: Dispatch<SetStateAction<boolean>>;
+  updateUser: (formData: TuserSchema) => Promise<void>;
+  openSettingUser: boolean;
+  setOpenSettingUser: Dispatch<SetStateAction<boolean>>;
+  deleteUser: () => Promise<void>;
+  deleteUserModal: boolean;
+  setDeleteUserModal: Dispatch<SetStateAction<boolean>>;
 }
 
 interface Iusers {
+  id?: string;
   name: string;
   email: string;
   password: string;

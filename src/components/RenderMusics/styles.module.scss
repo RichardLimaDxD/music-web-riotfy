@@ -4,10 +4,11 @@
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
+  justify-content: center;
 
   overflow-y: auto;
 
-  height: 75vh;
+  height: 70vh;
 
   padding: 1rem 0;
 }
@@ -22,7 +23,7 @@
   background: linear-gradient($color-purple, $color-black-title);
 
   transition: transform 0.5s;
-  height: 65%;
+  height: 19rem;
 
   &:hover {
     transform: scale(1.05);

@@ -6,6 +6,8 @@ export const metadata: Metadata = {
   description: "Dashboard Musics",
 };
 
+export const revalidate = 1;
+
 export default function RootLayout({
   children,
 }: {

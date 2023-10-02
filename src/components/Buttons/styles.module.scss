@@ -16,10 +16,16 @@
   border: none;
   border-radius: 0px 8px 8px 0px;
 
-  padding: 5px;
+  padding: 4px;
   height: 100%;
 
   svg {
     fill: $color-green;
+  }
+}
+
+@media (min-width: 811px) {
+  .container__buttonMenu {
+    display: none;
   }
 }

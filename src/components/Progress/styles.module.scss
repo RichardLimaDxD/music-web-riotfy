@@ -26,7 +26,12 @@
 
   &::before {
     position: absolute;
-    background: linear-gradient($color-blue, $color-green);
+    background: linear-gradient(
+      to bottom,
+      $color-green 30%,
+      $color-green 10%,
+      $color-blue 60%
+    );
     max-height: var(--progress);
     align-self: flex-start;
     transition: max-height 1s;

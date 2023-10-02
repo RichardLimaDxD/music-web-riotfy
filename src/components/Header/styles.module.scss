@@ -81,9 +81,7 @@
     flex-direction: column;
     gap: 0.5rem;
 
-    background: linear-gradient($color-purple, $color-blue, $color-purple);
-
-    box-shadow: 5px 1px 7px 1px $color-gray-white;
+    background: linear-gradient($color-purple, $color-player-purple);
 
     width: 6rem;
 
@@ -95,5 +93,97 @@
   li {
     color: $color-gray-white;
     font-family: $font-text;
+  }
+}
+
+.container__menuNavDesktop {
+  display: none;
+
+  ul > li > a:hover {
+    border-bottom: 2px solid $color-green;
+  }
+}
+
+@media (min-width: 811px) {
+  .container__header {
+    background-color: $color-purple;
+
+    padding: 0 3rem;
+
+    height: 66px;
+
+    h1 {
+      font-size: 1rem;
+
+      width: 200px;
+    }
+
+    div {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    div > h3 {
+      display: flex;
+    }
+
+    div > div {
+      width: 38px;
+      height: 35px;
+    }
+
+    div > ul {
+      right: 37px;
+      top: 3.2rem;
+    }
+
+    div > ul > li {
+      font-size: 0.8rem;
+    }
+
+    div > ul > li > button {
+      width: 4rem;
+      height: 2rem;
+    }
+  }
+
+  .container__menuNavMobile {
+    display: none;
+  }
+
+  .container__menuNavDesktop {
+    display: flex;
+
+    ul {
+      display: flex;
+      gap: 1rem;
+      color: $color-gray-white;
+      font-family: $font-text;
+    }
+
+    ul > li {
+      font-size: 0.9rem;
+    }
+  }
+}
+
+@media (min-width: 1023px) {
+  .container__header {
+    padding: 0 8rem;
+
+    h1 {
+      font-size: 1.3rem;
+      width: 260px;
+    }
+    div > ul {
+      right: 117px;
+    }
+  }
+
+  .container__menuNavDesktop {
+    ul > li {
+      font-size: 0.8rem;
+    }
   }
 }

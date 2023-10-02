@@ -1,6 +1,6 @@
 import { IplayerButton } from "@/interfaces/musics.interface";
 import { ImPause } from "react-icons/im";
-import { GrCaretNext } from "react-icons/gr";
+import { BsPlayCircle } from "react-icons/bs";
 import styles from "./styles.module.scss";
 
 const PlayerButton = ({
@@ -9,7 +9,7 @@ const PlayerButton = ({
   isPlaying,
 }: IplayerButton) => {
   const callback = isPlaying ? handlePause : handlePlay;
-  const Icons = isPlaying ? ImPause : GrCaretNext;
+  const Icons = isPlaying ? ImPause : BsPlayCircle;
 
   return (
     <button
@@ -17,7 +17,7 @@ const PlayerButton = ({
       type="button"
       onClick={callback}
     >
-      <Icons size={13} />
+      <Icons size={22} />
     </button>
   );
 };

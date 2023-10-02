@@ -8,6 +8,14 @@ interface ImusicCard {
   musics: TmusicData;
 }
 
+interface ImusicServer {
+  music: TmusicData;
+}
+
+interface ImusicsData {
+  musics: TmusicData[];
+}
+
 interface ImusicRender {
   music: TmusicData[];
 }
@@ -34,6 +42,10 @@ interface Imusic {
   music_url?: string;
 }
 
+interface IsearchMusic {
+  filteredMusic: Imusic[];
+}
+
 interface ImusicProps {
   music: Imusic[];
   setMusic: Dispatch<SetStateAction<Imusic[]>>;
@@ -45,6 +57,47 @@ interface ImusicProps {
   handleUpdateCurrentMusic: (musicURL: string) => void;
   skipNext: () => void;
   skipPrev: () => void;
+  currentMusicName: string | null;
+  setCurrentMusicName: Dispatch<SetStateAction<string | null>>;
+  currentMusicArtist: string | null;
+  setCurrentMusicArtist: Dispatch<SetStateAction<string | null>>;
+  volume: number;
+  setVolume: Dispatch<SetStateAction<number>>;
+  showVolume: boolean;
+  setShowVolume: Dispatch<SetStateAction<boolean>>;
+  search: string;
+  setSearch: Dispatch<SetStateAction<string>>;
+  searchValue: string;
+  setSearchValue: Dispatch<SetStateAction<string>>;
+  page: number;
+  setPage: Dispatch<SetStateAction<number>>;
+  musicFile: File | null;
+  setMusicFile: Dispatch<SetStateAction<File | null>>;
+  musicInfo: {
+    name: string;
+    artist: string;
+    album: string;
+    genre: string;
+    year: string;
+  };
+  setMusicInfo: Dispatch<
+    SetStateAction<{
+      name: string;
+      artist: string;
+      album: string;
+      genre: string;
+      year: string;
+    }>
+  >;
+  coverImage: File | null;
+  setCoverImage: Dispatch<SetStateAction<File | null>>;
+  createMusic: () => void;
+  currentMusicId: string | null;
+  setCurrentMusicId: Dispatch<SetStateAction<string | null>>;
+  updateMusic: (formData: Imusic, id: string) => Promise<void>;
+  deleteMusic: (id: string) => Promise<void>;
+  settingMusic: boolean;
+  setSettingMusic: Dispatch<SetStateAction<boolean>>;
 }
 
 interface IplayerButton {
@@ -55,6 +108,7 @@ interface IplayerButton {
 
 export type {
   Imusic,
+  ImusicServer,
   IplayerButton,
   ImusicParams,
   ImusicProps,
@@ -62,4 +116,6 @@ export type {
   ImusicCard,
   IprogressProps,
   ImusicRender,
+  IsearchMusic,
+  ImusicsData,
 };

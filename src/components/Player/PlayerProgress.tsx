@@ -1,5 +1,6 @@
 import { useMusics } from "@/hooks/musics.hook";
 import { useEffect, useRef } from "react";
+import styles from "./styles.module.scss";
 
 const PlayerProgress = () => {
   const { currentMusic } = useMusics();
@@ -36,7 +37,13 @@ const PlayerProgress = () => {
     };
   });
 
-  return <input type="range" />;
+  return (
+    <input
+      className={styles.container__inputProgress}
+      ref={inputRef}
+      type="range"
+    />
+  );
 };
 
 export { PlayerProgress };

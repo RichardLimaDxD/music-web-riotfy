@@ -13,7 +13,7 @@ const userSchema = z.object({
   name: z
     .string()
     .min(2, { message: "Esse campo deve conter 2 caractéres!" })
-    .nonempty({ message: "Ese campo não pode estar vazio!" }),
+    .nonempty({ message: "Esse campo não pode estar vazio!" }),
   admin: z.boolean().optional().default(false),
 });
 

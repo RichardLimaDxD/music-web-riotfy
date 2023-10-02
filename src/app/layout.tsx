@@ -14,6 +14,8 @@ export const metadata: Metadata = {
   icons: [{ rel: "icon", url: Favicon.src }],
 };
 
+export const revalidate = 1;
+
 export default function RootLayout({
   children,
 }: {
