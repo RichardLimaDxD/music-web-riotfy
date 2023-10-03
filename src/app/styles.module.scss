@@ -9,20 +9,23 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-top: 7rem;
 
   h1 {
+    text-align: center;
     font-size: 1rem;
     font-weight: 600;
     font-family: $font-title;
   }
 
   button {
-    font-size: 1rem;
+    margin-top: 1rem;
+
     font-weight: 600;
     font-family: $font-title;
 
-    height: 2rem;
-    width: 5rem;
+    height: 3rem;
+    width: 12rem;
 
     background-color: $color-black;
     color: $color-gray-white;
