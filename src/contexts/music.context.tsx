@@ -13,7 +13,7 @@ const MusicContext = createContext<ImusicProps>({} as ImusicProps);
 
 const MusicProvider = ({ children }: IpropsDefault) => {
   const [currentMusicName, setCurrentMusicName] = useState<null | string>(null);
-  const [currentMusicId, setCurrentMusicId] = useState<string | null>(null);
+
   const [settingMusic, setSettingMusic] = useState<boolean>(false);
   const [showVolume, setShowVolume] = useState<boolean>(false);
   const [searchValue, setSearchValue] = useState<string>("");
@@ -216,8 +216,7 @@ const MusicProvider = ({ children }: IpropsDefault) => {
         coverImage,
         setCoverImage,
         createMusic,
-        currentMusicId,
-        setCurrentMusicId,
+
         updateMusic,
         deleteMusic,
         settingMusic,

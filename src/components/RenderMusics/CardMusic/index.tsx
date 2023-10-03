@@ -4,6 +4,7 @@ import { ImusicCard } from "@/interfaces/musics.interface";
 import { useMusics } from "@/hooks/musics.hook";
 import { Progress } from "../../Progress";
 import styles from "../styles.module.scss";
+import Link from "next/link";
 
 const CardMusic = ({ musics }: ImusicCard) => {
   const {
@@ -13,7 +14,6 @@ const CardMusic = ({ musics }: ImusicCard) => {
     handleUpdateCurrentMusic,
     setCurrentMusicName,
     setCurrentMusicArtist,
-    setCurrentMusicId,
   } = useMusics();
 
   const isCurrentMusicPlaying =
@@ -23,20 +23,11 @@ const CardMusic = ({ musics }: ImusicCard) => {
     handleUpdateCurrentMusic(musics.music_url!);
     setCurrentMusicName(musics.name);
     setCurrentMusicArtist(musics.artist);
-    setCurrentMusicId(musics.id);
-  };
-
-  const handleEvents = () => {
-    if (isCurrentMusicPlaying) {
-      handlePause();
-    } else {
-      handlePlay();
-    }
   };
 
   return (
     <li className={styles.container__cards}>
-      <a onClick={handleEvents}>
+      <Link href={`/musics/${musics.id}`}>
         <span>{musics.name}</span>
         <img
           src={musics?.cover_image}
@@ -44,7 +35,7 @@ const CardMusic = ({ musics }: ImusicCard) => {
           width={60}
           height={45}
         />
-      </a>
+      </Link>
 
       <Progress musics={musics}>
         <PlayerButton
