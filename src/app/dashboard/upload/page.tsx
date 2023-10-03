@@ -1,7 +1,7 @@
 "use client";
 import { UploadImageForm } from "@/components/Forms/Uploads/UploadImageForm";
 import { UploadMusicForm } from "@/components/Forms/Uploads/UploadMusicForm";
-import { Header } from "@/components/Header";
+import Header from "@/components/Header";
 import { useMusics } from "@/hooks/musics.hook";
 import styles from "./styles.module.scss";
 
