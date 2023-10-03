@@ -216,7 +216,6 @@ const MusicProvider = ({ children }: IpropsDefault) => {
         coverImage,
         setCoverImage,
         createMusic,
-
         updateMusic,
         deleteMusic,
         settingMusic,

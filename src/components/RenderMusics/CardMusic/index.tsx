@@ -3,8 +3,8 @@ import { PlayerButton } from "../../Buttons/PlayerButton";
 import { ImusicCard } from "@/interfaces/musics.interface";
 import { useMusics } from "@/hooks/musics.hook";
 import { Progress } from "../../Progress";
-import styles from "../styles.module.scss";
 import Link from "next/link";
+import styles from "../styles.module.scss";
 
 const CardMusic = ({ musics }: ImusicCard) => {
   const {
