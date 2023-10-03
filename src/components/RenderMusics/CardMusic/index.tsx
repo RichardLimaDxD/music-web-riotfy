@@ -27,7 +27,7 @@ const CardMusic = ({ musics }: ImusicCard) => {
 
   return (
     <li className={styles.container__cards}>
-      <a>
+      <Link href={`/musics/${musics.id}`}>
         <span>{musics.name}</span>
         <img
           src={musics?.cover_image}
@@ -35,7 +35,7 @@ const CardMusic = ({ musics }: ImusicCard) => {
           width={60}
           height={45}
         />
-      </a>
+      </Link>
 
       <Progress musics={musics}>
         <PlayerButton
