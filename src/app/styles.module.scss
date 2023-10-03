@@ -1,5 +1,32 @@
+@use "../scss/abstract/variables" as *;
+
 .container__seassonMain > section > img {
   display: none;
+}
+
+.container__errorStyle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  h1 {
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: $font-title;
+  }
+
+  button {
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: $font-title;
+
+    height: 2rem;
+    width: 5rem;
+
+    background-color: $color-black;
+    color: $color-gray-white;
+  }
 }
 
 @media (min-width: 1023px) {
