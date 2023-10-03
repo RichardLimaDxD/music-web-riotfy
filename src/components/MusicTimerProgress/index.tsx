@@ -39,7 +39,6 @@ const MusicTimerProgress = ({ music }: any) => {
     handleUpdateCurrentMusic,
     setCurrentMusicName,
     setCurrentMusicArtist,
-    setCurrentMusicId,
   } = useMusics();
 
   const isCurrentMusicPlaying =
@@ -49,7 +48,6 @@ const MusicTimerProgress = ({ music }: any) => {
     handleUpdateCurrentMusic(music.music_url!);
     setCurrentMusicName(music.name);
     setCurrentMusicArtist(music.artist);
-    setCurrentMusicId(music.id);
   };
 
   return (

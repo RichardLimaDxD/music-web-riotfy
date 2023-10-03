@@ -92,8 +92,6 @@ interface ImusicProps {
   coverImage: File | null;
   setCoverImage: Dispatch<SetStateAction<File | null>>;
   createMusic: () => void;
-  currentMusicId: string | null;
-  setCurrentMusicId: Dispatch<SetStateAction<string | null>>;
   updateMusic: (formData: Imusic, id: string) => Promise<void>;
   deleteMusic: (id: string) => Promise<void>;
   settingMusic: boolean;

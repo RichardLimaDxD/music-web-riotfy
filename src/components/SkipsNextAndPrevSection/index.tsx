@@ -17,7 +17,6 @@ const SkipsNextAndPrevSection = ({ musics }: ImusicsData) => {
     currentMusicArtist,
     setCurrentMusicName,
     setCurrentMusicArtist,
-    setCurrentMusicId,
   } = useMusics();
 
   const [currentPosition, setCurrentPosition] = useState<number>(0);
@@ -44,7 +43,6 @@ const SkipsNextAndPrevSection = ({ musics }: ImusicsData) => {
         if (nextMusic) {
           setCurrentMusicName(nextMusic.name);
           setCurrentMusicArtist(nextMusic.artist);
-          setCurrentMusicId(nextMusic.id);
         }
       }
     } catch (error) {
@@ -64,7 +62,6 @@ const SkipsNextAndPrevSection = ({ musics }: ImusicsData) => {
         if (prevMusic) {
           setCurrentMusicName(prevMusic.name);
           setCurrentMusicArtist(prevMusic.artist);
-          setCurrentMusicId(prevMusic.id);
         }
       }
     } catch (error) {

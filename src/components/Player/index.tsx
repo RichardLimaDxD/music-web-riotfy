@@ -32,8 +32,6 @@ const Player = () => {
     volume,
     showVolume,
     setShowVolume,
-    currentMusicId,
-    setCurrentMusicId,
   } = useMusics();
 
   const handleSkipNext = () => {
@@ -49,7 +47,6 @@ const Player = () => {
           if (nextMusic) {
             setCurrentMusicName(nextMusic.name);
             setCurrentMusicArtist(nextMusic.artist);
-            setCurrentMusicId(nextMusic.id);
           }
         }
       }
@@ -71,7 +68,6 @@ const Player = () => {
           if (prevMusic) {
             setCurrentMusicName(prevMusic.name);
             setCurrentMusicArtist(prevMusic.artist);
-            setCurrentMusicId(prevMusic.id);
           }
         }
       }
@@ -150,9 +146,9 @@ const Player = () => {
 
             <ContainerTimerProgress />
             <button>
-              <Link href={`/musics/${currentMusicId}`}>
+              <a>
                 <PiArrowsInSimple />
-              </Link>
+              </a>
             </button>
           </div>
         </div>
