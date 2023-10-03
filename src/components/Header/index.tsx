@@ -8,15 +8,19 @@ import { DeleteUserModal } from "../Modals/UserModal/deleteUserModal";
 import { OptionsCommunUser } from "./OptionsCommunUser";
 import { OptionsAdminUser } from "./OptionsAdminUser";
 import { parseCookies } from "nookies";
+import { useState } from "react";
+import dynamic from "next/dynamic";
 import styles from "./styles.module.scss";
 
 const Header = () => {
-  const { openNav, user, setUserOptions, openSettingUser, deleteUserModal } =
-    useUsers();
-
-  const userSetting = () => {
-    setUserOptions((menu) => !menu);
-  };
+  const {
+    openNav,
+    user,
+    openSettingUser,
+    deleteUserModal,
+    setUserOptions,
+    userOptions,
+  } = useUsers();
 
   const cookies = parseCookies();
 
@@ -27,6 +31,10 @@ const Header = () => {
       <OptionsCommunUser />
     );
 
+  const userSetting = () => {
+    setUserOptions(!userOptions);
+  };
+
   return (
     <header className={styles.container__header}>
       {openNav ? <NavBarMobile /> : <ShowMenuButton />}
@@ -36,11 +44,11 @@ const Header = () => {
 
       <h1>MUSIC LEGENDS</h1>
 
-      <div>
+      <div onClick={() => userSetting()}>
         {user ? (
           <>
             <h3>{user.name}</h3>
-            <div onClick={userSetting}>
+            <div>
               <span>{user.name[0]}</span>
             </div>
           </>
@@ -53,4 +61,4 @@ const Header = () => {
   );
 };
 
-export { Header };
+export default dynamic(() => Promise.resolve(Header), { ssr: false });

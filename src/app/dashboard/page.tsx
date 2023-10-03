@@ -1,5 +1,5 @@
 import api from "@/services/api";
-import { Header } from "@/components/Header";
+import Header from "@/components/Header";
 import { TmusicData } from "@/interfaces/musics.interface";
 import { RenderMusics } from "@/components/RenderMusics";
 import { Player } from "@/components/Player";
