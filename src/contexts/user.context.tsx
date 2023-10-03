@@ -68,31 +68,27 @@ const UserProvider = ({ children }: IpropsDefault) => {
   const logOut = () => {
     setCookie(null, "riotfy.token", "", {
       path: "/",
-      domain: "https://riotfy-pd3thw5pf-richardlimadxd.vercel.app",
+
       maxAge: 0,
     });
     setCookie(null, "riotfy.isAdmin", "", {
       path: "/",
-      domain: "https://riotfy-pd3thw5pf-richardlimadxd.vercel.app",
+
       maxAge: 0,
     });
 
     destroyCookie(null, "riotfy.token", {
       path: "/",
-      domain: "https://riotfy-pd3thw5pf-richardlimadxd.vercel.app",
     });
     destroyCookie(null, "riotfy.isAdmin", {
       path: "/",
-      domain: "https://riotfy-pd3thw5pf-richardlimadxd.vercel.app",
     });
 
     destroyCookie(null, "riotfy.isAdmin", {
       path: "/",
-      domain: "https://riotfy-pd3thw5pf-richardlimadxd.vercel.app",
     });
     setCookie(null, "riotfy.isAdmin", "", {
       path: "/",
-      domain: "https://riotfy-pd3thw5pf-richardlimadxd.vercel.app",
       maxAge: 0,
     });
 
