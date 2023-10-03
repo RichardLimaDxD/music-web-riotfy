@@ -23,7 +23,6 @@ const OptionsAdminUser = () => {
 
     destroyCookie(null, "riotfy.token", {
       path: "/",
-      domain: "https://riotfy-pd3thw5pf-richardlimadxd.vercel.app",
     });
     destroyCookie(null, "riotfy.isAdmin", {
       path: "/",
@@ -32,11 +31,10 @@ const OptionsAdminUser = () => {
 
     destroyCookie(null, "riotfy.isAdmin", {
       path: "/",
-      domain: "https://riotfy-pd3thw5pf-richardlimadxd.vercel.app",
     });
     setCookie(null, "riotfy.isAdmin", "", {
       path: "/",
-      domain: "https://riotfy-pd3thw5pf-richardlimadxd.vercel.app",
+
       maxAge: 0,
     });
 
