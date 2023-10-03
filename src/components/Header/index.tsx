@@ -37,10 +37,16 @@ const Header = () => {
       <h1>MUSIC LEGENDS</h1>
 
       <div>
-        <h3>{user?.name}</h3>
-        <div onClick={userSetting}>
-          <span>{user?.name[0]}</span>
-        </div>
+        {user ? (
+          <>
+            <h3>{user.name}</h3>
+            <div onClick={userSetting}>
+              <span>{user.name[0]}</span>
+            </div>
+          </>
+        ) : (
+          <p>Carregando...</p>
+        )}
         {isAdmin}
       </div>
     </header>
