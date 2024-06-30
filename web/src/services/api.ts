@@ -1,8 +1,8 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "http://localhost:3333",
-  timeout: 7000,
+  baseURL: "https://riotfy.onrender.com",
+  timeout: 9000,
 });
 
 export default api;
