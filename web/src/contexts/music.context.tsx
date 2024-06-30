@@ -48,7 +48,7 @@ const MusicProvider = ({ children }: IpropsDefault) => {
     if (currentMusic) {
       currentMusic.volume = volume / 100;
     }
-
+    getAllMusic();
     currentMusic?.play();
   }, [volume, currentMusic]);
 
@@ -138,8 +138,6 @@ const MusicProvider = ({ children }: IpropsDefault) => {
 
       await uploadfiles(response.data.id, musicFile!, coverImage!);
 
-      router.push("/dashboard");
-
       Toastfy({
         message: "Música cadastrada com sucesso!",
         isSucess: true,
@@ -147,6 +145,14 @@ const MusicProvider = ({ children }: IpropsDefault) => {
     } catch (error) {
       Toastfy({ message: "Erro ao criar a música" });
     }
+  };
+
+  const getAllMusic = async () => {
+    try {
+      const response = await api.get("/musics");
+
+      setMusic(response.data);
+    } catch (error) {}
   };
 
   const updateMusic = async (formData: Imusic, id: string) => {
@@ -158,7 +164,6 @@ const MusicProvider = ({ children }: IpropsDefault) => {
       });
       setSettingMusic(false);
       Toastfy({ message: "Música modificada com sucesso!", isSucess: true });
-      window.location.reload();
     } catch (error) {
       setSettingMusic(false);
       Toastfy({ message: "Erro ao editar informações da música!" });
@@ -220,6 +225,7 @@ const MusicProvider = ({ children }: IpropsDefault) => {
         deleteMusic,
         settingMusic,
         setSettingMusic,
+        getAllMusic,
       }}
     >
       {children}

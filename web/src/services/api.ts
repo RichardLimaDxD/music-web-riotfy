@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "https://riotfy.onrender.com",
+  baseURL: "http://localhost:3333",
   timeout: 7000,
 });
 

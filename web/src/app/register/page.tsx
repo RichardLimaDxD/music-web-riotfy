@@ -9,7 +9,7 @@ const register = () => {
     <main className={styles.container__registerMain}>
       <section>
         <SignUpForm />
-        <Image src={backgroundImgRegister} alt="img background" />
+        <Image src={backgroundImgRegister} priority alt="img background" />
       </section>
     </main>
   );

@@ -1,13 +1,12 @@
 "use client";
 import { useMusics } from "@/hooks/musics.hook";
-import { ImusicsData } from "@/interfaces/musics.interface";
 import { useEffect, useState } from "react";
 import { MdArrowBackIosNew, MdArrowForwardIos } from "react-icons/md";
 import Toastfy from "../Toastfy";
-import styles from "./styles.module.scss";
 import { AiFillHeart } from "react-icons/ai";
+import styles from "./styles.module.scss";
 
-const SkipsNextAndPrevSection = ({ musics }: ImusicsData) => {
+const SkipsNextAndPrevSection = () => {
   const {
     skipNext,
     skipPrev,
@@ -36,10 +35,10 @@ const SkipsNextAndPrevSection = ({ musics }: ImusicsData) => {
     try {
       skipNext();
 
-      setCurrentPosition((prevPosition) => (prevPosition + 1) % musics.length);
+      setCurrentPosition((prevPosition) => (prevPosition + 1) % music.length);
 
       if (currentMusic) {
-        const nextMusic = music[(currentPosition + 1) % musics.length];
+        const nextMusic = music[(currentPosition + 1) % music.length];
         if (nextMusic) {
           setCurrentMusicName(nextMusic.name);
           setCurrentMusicArtist(nextMusic.artist);
@@ -54,11 +53,11 @@ const SkipsNextAndPrevSection = ({ musics }: ImusicsData) => {
     try {
       skipPrev();
       setCurrentPosition(
-        (prevPosition) => (prevPosition - 1 + musics.length) % musics.length
+        (prevPosition) => (prevPosition - 1 + music.length) % music.length
       );
       if (currentMusic) {
         const prevMusic =
-          music[(currentPosition - 1 + musics.length) % musics.length];
+          music[(currentPosition - 1 + music.length) % music.length];
         if (prevMusic) {
           setCurrentMusicName(prevMusic.name);
           setCurrentMusicArtist(prevMusic.artist);
@@ -77,7 +76,7 @@ const SkipsNextAndPrevSection = ({ musics }: ImusicsData) => {
         </button>
 
         <span>
-          {currentPosition + 1}/{musics.length}
+          {currentPosition + 1}/{music.length}
         </span>
 
         <button onClick={handleSkipNext}>

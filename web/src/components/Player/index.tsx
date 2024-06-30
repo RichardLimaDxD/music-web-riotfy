@@ -12,7 +12,6 @@ import Image from "next/image";
 import rotate from "../../assets/rotate-cw.svg";
 import repeat from "../../assets/repeat.svg";
 import Toastfy from "../Toastfy";
-import Link from "next/link";
 import styles from "./styles.module.scss";
 
 const Player = () => {

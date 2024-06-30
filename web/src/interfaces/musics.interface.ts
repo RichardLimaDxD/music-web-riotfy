@@ -96,6 +96,7 @@ interface ImusicProps {
   deleteMusic: (id: string) => Promise<void>;
   settingMusic: boolean;
   setSettingMusic: Dispatch<SetStateAction<boolean>>;
+  getAllMusic: () => Promise<void>;
 }
 
 interface IplayerButton {

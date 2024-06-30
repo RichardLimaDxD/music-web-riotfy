@@ -1,16 +1,12 @@
-import api from "@/services/api";
+"use client";
 import Header from "@/components/Header";
 import { Player } from "@/components/Player";
-import { TmusicData } from "@/interfaces/musics.interface";
 import Image from "next/image";
 import leagueOfLegends from "../../../assets/logo.svg";
 import { SkipsNextAndPrevSection } from "@/components/SkipsNextAndPrevSection";
 import styles from "./styles.module.scss";
 
-const Playlist = async () => {
-  const response = await api.get("/musics");
-  const musics: TmusicData[] = response.data;
-
+const Playlist = () => {
   return (
     <>
       <Header />
@@ -18,7 +14,7 @@ const Playlist = async () => {
         <Image src={leagueOfLegends} alt="league of legends" />
         <h2>RIOT GAMES</h2>
 
-        <SkipsNextAndPrevSection musics={musics} />
+        <SkipsNextAndPrevSection />
       </section>
       <Player />
     </>

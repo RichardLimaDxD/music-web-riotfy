@@ -8,11 +8,9 @@ import { DeleteUserModal } from "../Modals/UserModal/deleteUserModal";
 import { OptionsCommunUser } from "./OptionsCommunUser";
 import { OptionsAdminUser } from "./OptionsAdminUser";
 import { parseCookies } from "nookies";
-import { useState } from "react";
-import dynamic from "next/dynamic";
 import styles from "./styles.module.scss";
 
-const Header = () => {
+const HeaderHome = () => {
   const {
     openNav,
     user,
@@ -49,7 +47,7 @@ const Header = () => {
           <>
             <h3>{user.name}</h3>
             <div>
-              <span>{user.name[0]}</span>
+              <span>{user.name && user.name[0]}</span>
             </div>
           </>
         ) : (
@@ -61,4 +59,4 @@ const Header = () => {
   );
 };
 
-export default dynamic(() => Promise.resolve(Header), { ssr: false });
+export default HeaderHome;
